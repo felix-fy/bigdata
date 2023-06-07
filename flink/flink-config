@@ -72,47 +72,109 @@ exponential-delay：指数延迟重新启动策略以指数增加的延迟触发
 ## 四、检查点和后端状态
 
 
-## 五、故障恢复
+## 五、jobmanager故障恢复
+5.1 high-availability.type="zookeeper"
+jobmanager高可用模式下集群注册方式
+
+5.2 high-availability.cluster-id
+配置flink集群id
+
+5.3 high-availability.storageDir
+用于保存元数据的文件系统路径
 
 
 ## 六、内存配置
-
-
-## 七、其他参数
-7.1 jobmanager.memory.enable-jvm-direct-memory-limit=true
+6.1 jobmanager.memory.enable-jvm-direct-memory-limit=true
 是否启用 JobManager 进程的 JVM 直接内存限制 
 
-7.2 jobmanager.memory.flink.size
+6.2 jobmanager.memory.flink.size
 作业管理器的总 Flink 内存大小。这包括 JobManager 消耗的所有内存，由 JVM 堆内存和堆外内存组成
 
-7.3 jobmanager.memory.heap.size
+6.3 jobmanager.memory.heap.size
 用于 JobManager 的 JVM 堆内存大小
 
-7.4 jobmanager.memory.jvm-metaspace.size
+6.4 jobmanager.memory.jvm-metaspace.size
 作业管理器的 JVM metaspace大小
 
-7.5 jobmanager.memory.jvm-overhead.fraction
+6.5 jobmanager.memory.jvm-overhead.fraction
 为 JVM 开销保留的堆外内存
 
-7.6 jobmanager.memory.jvm-overhead.max
+6.6 jobmanager.memory.jvm-overhead.max
 这是为JobManager的JVM 开销保留的堆外内存的最大大小
 
-7.7 jobmanager.memory.jvm-overhead.min
+6.7 jobmanager.memory.jvm-overhead.min
 这是为JobManager的JVM 开销保留的堆外内存的最小大小
 
-7.8 jobmanager.memory.off-heap.size
+6.8 jobmanager.memory.off-heap.size
 JobManager 的堆外内存大小。此选项涵盖所有堆外内存使用情况
 
-7.9 jobmanager.memory.process.size
+6.9 jobmanager.memory.process.size
 JobManager 的总进程内存大小。这包括 JobManager JVM 进程消耗的所有内存，包括总 Flink 内存、JVM 元空间和 JVM 开销
 
-7.10 taskManager.memory.flink.size 
+6.10 taskManager.memory.flink.size 
 taskManager的 Flink 内存总大小。包括 TaskExecutor 消耗的所有内存，除了 JVM Metaspace 和 JVM Overhead。
 它由框架堆内存、任务堆内存、任务堆外内存、托管内存和网络内存组成。
 
-7.11 taskmanager.memory.framework.heap.size
+6.11 taskmanager.memory.framework.heap.size
 TaskExecutors 的框架堆外内存大小
 这是为 TaskExecutor 框架保留的堆外内存（JVM 直接内存和本机内存）的大小，这些内存不会分配给任务槽。
+
+6.12 taskManager.memory.framework.off-heap.batch-shuffle.size
+批处理任务机数据随机读取的内存大小
+
+6.13 taskManager.memory.framework.off-heap.size
+TaskExecutors 的框架堆外内存大小。
+这是为 TaskExecutor 框架保留的堆外内存（JVM 直接内存和本机内存）的大小，这些内存不会分配给任务槽。
+
+6.14 taskmanager.memory.jvm-metaspace.size
+taskmanager的jvm-metaspace使用内存大小
+
+6.15 taskManager.memory.jvm-overhead.fraction
+为taskmanager jvm保留的堆外内存大小
+
+6.16 taskManager.memory.jvm-overhead.max
+taskmanager堆外内存JVM 最大开销大小。为 JVM 开销保留的堆外内存
+
+6.17 taskManager.memory.jvm-overhead.min
+taskmanager堆外内存JVM 最小开销大小。为 JVM 开销保留的堆外内存
+
+6.18 taskManager.memory.managed.consumer-weights
+taskmanager不同类型使用者的托管内存权重
+
+6.19 taskManager.memory.managed.fraction
+taskmanager堆内堆外内存使用比例
+
+6.20 taskmanager.memory.managed.size
+taskmanager内存管理器管理的离堆内存的大小
+
+6.21 taskmanager.memory.network.fraction
+taskmanager用于网络缓冲区的内存大小
+
+6.22 taskmanager.memory.network.max
+taskmanger用于网络缓冲区ShuffleEnvironment的最大内存大小
+
+6.23 taskmanager.memory.network.min
+taskmanger用于网络缓冲区ShuffleEnvironment的最小内存大小
+
+6.24 taskmanager.memory.process.size
+taskmanger可消耗的总内存大小
+
+6.25 taskmanager.memory.task.heap.size
+taskmanger可消耗的堆内内存大小
+
+6.26 taskmanager.memory.task.off-heap.size
+taskmanger可消耗的堆外内存大小
+
+
+## 七、其他参数
+7.1 fs.allow-fallback-filesystems
+配置后端文件系统连接地址
+
+7.2 fs.default-scheme
+默认文件系统路径
+
+7.3 io.tmp.dirs
+临时文件存放目录
 
 
 ## 八、安全
@@ -143,7 +205,7 @@ TaskExecutors 的框架堆外内存大小
 10.7 jobmanager.memory.process.size
 定义jobmanager容器的requests和limits
 
-1=.8 taskmanager.memory.process.size
+10.8 taskmanager.memory.process.size
 定义taskmanager容器的requests和limits
 
 
@@ -157,6 +219,8 @@ TaskExecutors 的框架堆外内存大小
 
 
 ## 十四、taskmanager配置参数
-## 客户端
+
+
+## 十五、客户端
 
 
