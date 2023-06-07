@@ -47,6 +47,7 @@ exponentialdelay：指数延迟重启策略
 2.5 restart-strategy.failure-rate.max-failures-per-interval="10"  
 定义因故障二重启的最大重启次数  
 
+
 ## 三、清理任务
 3.1 cleanup-strategy.type
 none：只执行一次清理
@@ -68,8 +69,22 @@ exponential-delay：指数延迟重新启动策略以指数增加的延迟触发
 3.8 cleanup-strategy.exponential-delay.max-backoff
 
 
-
 ## 四、检查点和后端状态
+4.1 state.backend.type
+
+4.2 state.checkpoint-storage
+
+4.3 state.checkpoints.dir
+
+4.4 state.savepoints.dir
+
+4.5 state.backend.incremental
+
+4.6 state.backend.local-recovery
+
+4.7 state.checkpoints.num-retained
+
+4.8 taskmanager.state.local.root-dirs
 
 
 ## 五、jobmanager故障恢复
@@ -165,7 +180,6 @@ taskmanger可消耗的堆内内存大小
 6.26 taskmanager.memory.task.off-heap.size
 taskmanger可消耗的堆外内存大小
 
-
 ## 七、其他参数
 7.1 fs.allow-fallback-filesystems
 配置后端文件系统连接地址
@@ -178,35 +192,135 @@ taskmanger可消耗的堆外内存大小
 
 
 ## 八、安全
+8.1 security.delegation.tokens.enabled
+
+8.2 security.delegation.tokens.renewal.retry.backoff
+
+8.3 security.delegation.tokens.renewal.time-ratio
+
+8.4 security.delegation.token.provider.<serviceName>.enabled
+
+8.5 zookeeper.sasl.disable
+
+8.6 zookeeper.sasl.login-context-name
+
+8.7 zookeeper.sasl.service-name
+
+8.8 security.kerberos.access.hadoopFileSystems
+
+8.9 security.kerberos.login.contexts
+
+8.10 security.kerberos.login.keytab
+
+8.11 security.kerberos.login.principal
+
+8.12 security.kerberos.login.use-ticket-cache
+
+8.13 security.kerberos.relogin.period
 
 
-## 九、编排框架
+## 九、kubernetes相关
+9.1 rnal-resource.<resource_name>.kubernetes.config-key
 
+9.2 kubernetes.client.io-pool.size
 
-## 十、kubernetes相关参数
-10.1 kubernetes.namespace=
-定义jobmanager和taskmanager部署的namespace
+9.3 kubernetes.client.user-agent
 
-10.2 kubernetes.jobmanager.labels=
-定义部署jobmanager容器的labels
+9.4 kubernetes.cluster-id
 
-10.3 kubernetes.taskmanager.labels=
-定义部署taskmanager容器的labels
+9.5 kubernetes.config.file
 
-10.4 kubernetes.container.image.pull-secrets
+9.6 kubernetes.container.image.pull-policy
+
+9.7 kubernetes.container.image.pull-secrets
 定义连接镜像仓库的密钥信息
 
-10.5 kubernetes.service-account
+9.8 kubernetes.container.image.ref
+
+9.9 kubernetes.context
+
+9.10 kubernetes.decorator.hadoop-conf-mount.enabled
+
+9.11 kubernetes.decorator.kerberos-mount.enabled
+
+9.12 kubernetes.entry.path
+
+9.13 kubernetes.env.secretKeyRef
+
+9.14 kubernetes.flink.conf.dir
+
+9.15 kubernetes.flink.log.dir
+
+9.16 kubernetes.hadoop.conf.config-map.name
+
+9.17 kubernetes.hostnetwork.enabled
+
+9.18 kubernetes.jobmanager.annotations
+
+9.19 kubernetes.jobmanager.cpu.amount
+
+9.20 kubernetes.jobmanager.cpu.limit-factor
+
+9.21 kubernetes.jobmanager.entrypoint.args
+
+9.22 kubernetes.jobmanager.labels
+定义部署jobmanager容器的labels
+
+9.23 kubernetes.jobmanager.memory.limit-factor
+
+9.24 kubernetes.jobmanager.node-selector
+
+9.25 kubernetes.jobmanager.owner.reference
+
+9.26 kubernetes.jobmanager.replicas
+
+9.27 kubernetes.jobmanager.replicas
+
+9.28 kubernetes.jobmanager.tolerations
+
+9.29 kubernetes.namespace
+定义jobmanager和taskmanager部署的namespace
+
+9.30 kubernetes.pod-template-file.default
+
+9.31 kubernetes.pod-template-file.jobmanager
+
+9.32 kubernetes.pod-template-file.taskmanager
+
+9.33 kubernetes.rest-service.annotations
+
+9.34 kubernetes.rest-service.exposed.node-port-address-type
+
+9.35 kubernetes.rest-service.exposed.type
+
+9.36 kubernetes.secrets
+
+9.37 kubernetes.service-account
 定义创建jobmanager和taskmanager的service-account
 
-10.6 flink-main-container
-定义容器名称
+9.38 kubernetes.taskmanager.annotations
 
-10.7 jobmanager.memory.process.size
-定义jobmanager容器的requests和limits
+9.39 kubernetes.taskmanager.cpu.amount
 
-10.8 taskmanager.memory.process.size
-定义taskmanager容器的requests和limits
+9.40 kubernetes.taskmanager.cpu.limit-factor
+
+9.41 kubernetes.taskmanager.entrypoint.args
+
+9.42 kubernetes.taskmanager.labels
+定义部署taskmanager容器的labels
+
+9.43 kubernetes.taskmanager.memory.limit-factor
+
+9.44 kubernetes.taskmanager.node-selector
+
+9.45 kubernetes.taskmanager.service-account
+
+9.46 kubernetes.taskmanager.tolerations
+
+9.47 kubernetes.transactional-operation.max-retries
+
+
+## 十、编排框架相关
 
 
 ## 十一、监控指标
