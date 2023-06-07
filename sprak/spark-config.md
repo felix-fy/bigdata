@@ -44,3 +44,85 @@ exponentialdelay：指数延迟重启策略
 2.4 restart-strategy.failure-rate.delay="1m"  
 定义因故障而重启的两次连续重新启动尝试之间的时间间隔  
 
+2.5 restart-strategy.failure-rate.max-failures-per-interval="10"  
+定义因故障二重启的最大重启次数  
+
+## 三、清理任务
+3.1 cleanup-strategy.type
+none：只执行一次清理
+fixed-delay：按固定间隔执行清理任务，直到清理成功或达到设定重试次数
+exponential-delay：指数延迟重新启动策略以指数增加的延迟触发清理，直到清理成功或达到设定数量。达到配置的限制后需要手动清理作业
+
+3.2 cleanup-strategy.fixed-delay.attempts
+清理任务标记为失败前的重试次数
+
+3.3 cleanup-strategy.fixed-delay.delay
+清理任务失败后重试前的延迟时间
+
+3.4 cleanup-strategy.exponential-delay.try
+定义重试清理任务的次数
+
+3.7 cleanup-strategy.exponential-delay.initial-backoff
+
+
+3.8 cleanup-strategy.exponential-delay.max-backoff
+
+
+
+## 四、检查点和后端状态
+
+
+## 五、故障恢复
+
+
+## 六、内存配置
+
+
+## 七、其他参数
+
+
+## 八、安全
+
+
+## 九、编排框架
+
+
+## 十、kubernetes相关参数
+.1 kubernetes.namespace=
+定义jobmanager和taskmanager部署的namespace
+
+.2 kubernetes.jobmanager.labels=
+定义部署jobmanager容器的labels
+
+.3 kubernetes.taskmanager.labels=
+定义部署taskmanager容器的labels
+
+.4 kubernetes.container.image.pull-secrets
+定义连接镜像仓库的密钥信息
+
+.5 kubernetes.service-account
+定义创建jobmanager和taskmanager的service-account
+
+.6 flink-main-container
+定义容器名称
+
+.7 jobmanager.memory.process.size
+定义jobmanager容器的requests和limits
+
+.8 taskmanager.memory.process.size
+定义taskmanager容器的requests和limits
+
+
+## 十一、监控指标
+
+
+## 十二、历史记录服务器
+
+
+## 十三、jobmanager配置参数
+
+
+## 十四、taskmanager配置参数
+## 客户端
+
+
