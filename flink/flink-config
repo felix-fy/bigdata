@@ -79,6 +79,40 @@ exponential-delay：指数延迟重新启动策略以指数增加的延迟触发
 
 
 ## 七、其他参数
+7.1 jobmanager.memory.enable-jvm-direct-memory-limit=true
+是否启用 JobManager 进程的 JVM 直接内存限制 
+
+7.2 jobmanager.memory.flink.size
+作业管理器的总 Flink 内存大小。这包括 JobManager 消耗的所有内存，由 JVM 堆内存和堆外内存组成
+
+7.3 jobmanager.memory.heap.size
+用于 JobManager 的 JVM 堆内存大小
+
+7.4 jobmanager.memory.jvm-metaspace.size
+作业管理器的 JVM metaspace大小
+
+7.5 jobmanager.memory.jvm-overhead.fraction
+为 JVM 开销保留的堆外内存
+
+7.6 jobmanager.memory.jvm-overhead.max
+这是为JobManager的JVM 开销保留的堆外内存的最大大小
+
+7.7 jobmanager.memory.jvm-overhead.min
+这是为JobManager的JVM 开销保留的堆外内存的最小大小
+
+7.8 jobmanager.memory.off-heap.size
+JobManager 的堆外内存大小。此选项涵盖所有堆外内存使用情况
+
+7.9 jobmanager.memory.process.size
+JobManager 的总进程内存大小。这包括 JobManager JVM 进程消耗的所有内存，包括总 Flink 内存、JVM 元空间和 JVM 开销
+
+7.10 taskManager.memory.flink.size 
+taskManager的 Flink 内存总大小。包括 TaskExecutor 消耗的所有内存，除了 JVM Metaspace 和 JVM Overhead。
+它由框架堆内存、任务堆内存、任务堆外内存、托管内存和网络内存组成。
+
+7.11 taskmanager.memory.framework.heap.size
+TaskExecutors 的框架堆外内存大小
+这是为 TaskExecutor 框架保留的堆外内存（JVM 直接内存和本机内存）的大小，这些内存不会分配给任务槽。
 
 
 ## 八、安全
@@ -88,28 +122,28 @@ exponential-delay：指数延迟重新启动策略以指数增加的延迟触发
 
 
 ## 十、kubernetes相关参数
-.1 kubernetes.namespace=
+10.1 kubernetes.namespace=
 定义jobmanager和taskmanager部署的namespace
 
-.2 kubernetes.jobmanager.labels=
+10.2 kubernetes.jobmanager.labels=
 定义部署jobmanager容器的labels
 
-.3 kubernetes.taskmanager.labels=
+10.3 kubernetes.taskmanager.labels=
 定义部署taskmanager容器的labels
 
-.4 kubernetes.container.image.pull-secrets
+10.4 kubernetes.container.image.pull-secrets
 定义连接镜像仓库的密钥信息
 
-.5 kubernetes.service-account
+10.5 kubernetes.service-account
 定义创建jobmanager和taskmanager的service-account
 
-.6 flink-main-container
+10.6 flink-main-container
 定义容器名称
 
-.7 jobmanager.memory.process.size
+10.7 jobmanager.memory.process.size
 定义jobmanager容器的requests和limits
 
-.8 taskmanager.memory.process.size
+1=.8 taskmanager.memory.process.size
 定义taskmanager容器的requests和limits
 
 
