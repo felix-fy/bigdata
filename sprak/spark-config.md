@@ -1,5 +1,5 @@
 ## 一、主机和端口
-1.1 jobmanager.rpc.address="192.168.1.1"
+1.1 jobmanager.rpc.address="192.168.1.1" \n
 定义单个jobmanager的静态IP地址，在jobmanager-HA模式中不生效
 
 1.2 jobmanager.rpc.port=223
