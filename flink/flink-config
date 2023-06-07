@@ -222,100 +222,141 @@ taskmanger可消耗的堆外内存大小
 ## 九、kubernetes相关
 9.1 rnal-resource.<resource_name>.kubernetes.config-key
 
+
 9.2 kubernetes.client.io-pool.size
 
+
 9.3 kubernetes.client.user-agent
+配置连接k8s集群的用户
 
 9.4 kubernetes.cluster-id
+配置k8s集群的id
 
 9.5 kubernetes.config.file
+k8s客户端配置文件，默认位于 ~/.kube/config
 
 9.6 kubernetes.container.image.pull-policy
+配置容器镜像拉取策略
+"IfNotPresent"：如果不存在则拉取
+"Always"：总是拉取
+"Never"：从不拉取
 
 9.7 kubernetes.container.image.pull-secrets
 定义连接镜像仓库的密钥信息
 
 9.8 kubernetes.container.image.ref
+定义flink容器镜像及版本
 
 9.9 kubernetes.context
+配置k8s默认连接命名空间
 
 9.10 kubernetes.decorator.hadoop-conf-mount.enabled
+挂载hadoop配置文件
 
 9.11 kubernetes.decorator.kerberos-mount.enabled
+挂载kerberos配置文件
 
 9.12 kubernetes.entry.path
+配置容器启动时运行的脚本
 
 9.13 kubernetes.env.secretKeyRef
+定义flink容器内挂载密钥的文件路径
 
 9.14 kubernetes.flink.conf.dir
+定义flink容器内flink配置文件目录
 
 9.15 kubernetes.flink.log.dir
+定义flink容器内flink配置日志目录
 
 9.16 kubernetes.hadoop.conf.config-map.name
+定义hadoop配置文件名称
 
-9.17 kubernetes.hostnetwork.enabled
+9.17 kubernetes.hostnetwork.enabled=false
+配置是否允许flink容器使用node节点的网络空间
 
 9.18 kubernetes.jobmanager.annotations
 
+
 9.19 kubernetes.jobmanager.cpu.amount
+定义jobmanager使用的cpu数(cpu.resource)
 
 9.20 kubernetes.jobmanager.cpu.limit-factor
+定义jobmanager使用的最大cpu数(cpu.limit)
 
 9.21 kubernetes.jobmanager.entrypoint.args
+
 
 9.22 kubernetes.jobmanager.labels
 定义部署jobmanager容器的labels
 
 9.23 kubernetes.jobmanager.memory.limit-factor
+定义jobmanager使用的最大内存数(memory.limit)
 
 9.24 kubernetes.jobmanager.node-selector
+配置容器的节点选择器
 
 9.25 kubernetes.jobmanager.owner.reference
 
-9.26 kubernetes.jobmanager.replicas
 
-9.27 kubernetes.jobmanager.replicas
+9.26 kubernetes.jobmanager.replicas
+配置jobmanager pod的副本数
 
 9.28 kubernetes.jobmanager.tolerations
+
 
 9.29 kubernetes.namespace
 定义jobmanager和taskmanager部署的namespace
 
 9.30 kubernetes.pod-template-file.default
 
+
 9.31 kubernetes.pod-template-file.jobmanager
+
 
 9.32 kubernetes.pod-template-file.taskmanager
 
+
 9.33 kubernetes.rest-service.annotations
+
 
 9.34 kubernetes.rest-service.exposed.node-port-address-type
 
+
 9.35 kubernetes.rest-service.exposed.type
 
+
 9.36 kubernetes.secrets
+指定挂载到flink容器的secrets文件路径
 
 9.37 kubernetes.service-account
 定义创建jobmanager和taskmanager的service-account
 
 9.38 kubernetes.taskmanager.annotations
 
+
 9.39 kubernetes.taskmanager.cpu.amount
+设置每个taskmanager pod 使用的cpu数(cpu.resource)
 
 9.40 kubernetes.taskmanager.cpu.limit-factor
+设置每个taskmanager pod 使用的最大cpu数(cpu.limit)
 
 9.41 kubernetes.taskmanager.entrypoint.args
+
 
 9.42 kubernetes.taskmanager.labels
 定义部署taskmanager容器的labels
 
 9.43 kubernetes.taskmanager.memory.limit-factor
 
+
 9.44 kubernetes.taskmanager.node-selector
+
 
 9.45 kubernetes.taskmanager.service-account
 
+
 9.46 kubernetes.taskmanager.tolerations
+
 
 9.47 kubernetes.transactional-operation.max-retries
 
@@ -327,6 +368,28 @@ taskmanger可消耗的堆外内存大小
 
 
 ## 十二、历史记录服务器
+12.1 historyserver.archive.clean-expire-jobs
+
+12.2 historyserver.archive.fs.dir
+
+12.3 historyserver.archive.fs.refresh-interval
+
+12.4 historyserver.archive.retained-jobs
+
+12.5 historyserver.log.jobmanager.url-pattern
+
+12.6 historyserver.log.taskmanager.url-pattern
+
+12.7 historyserver.web.port
+
+12.8 historyserver.web.refresh-interval
+
+12.9 historyserver.web.ssl.enabled
+
+12.10 historyserver.web.tmpdir
+
+12.11 historyserver.web.port
+
 
 
 ## 十三、jobmanager配置参数
@@ -336,5 +399,14 @@ taskmanger可消耗的堆外内存大小
 
 
 ## 十五、客户端
+15.1 client.heartbeat.interval
+客户端心跳检测间隔时间
 
+15.2 client.heartbeat.timeout
+客户端心跳检测超时时间
 
+15.3 client.retry-period
+执行命令失败自动重试时间间隔
+
+15.4 client.timeout
+客户端连接超时时间
