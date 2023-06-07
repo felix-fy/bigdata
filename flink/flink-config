@@ -275,7 +275,7 @@ k8s客户端配置文件，默认位于 ~/.kube/config
 配置是否允许flink容器使用node节点的网络空间
 
 9.18 kubernetes.jobmanager.annotations
-
+配置jobmanager的pod注释信息
 
 9.19 kubernetes.jobmanager.cpu.amount
 定义jobmanager使用的cpu数(cpu.resource)
@@ -293,7 +293,7 @@ k8s客户端配置文件，默认位于 ~/.kube/config
 定义jobmanager使用的最大内存数(memory.limit)
 
 9.24 kubernetes.jobmanager.node-selector
-配置容器的节点选择器
+配置jobmanager容器的节点选择器
 
 9.25 kubernetes.jobmanager.owner.reference
 
@@ -302,19 +302,19 @@ k8s客户端配置文件，默认位于 ~/.kube/config
 配置jobmanager pod的副本数
 
 9.28 kubernetes.jobmanager.tolerations
-
+配置jobmanager的pod污点容忍
 
 9.29 kubernetes.namespace
 定义jobmanager和taskmanager部署的namespace
 
 9.30 kubernetes.pod-template-file.default
-
+定义pod部署的yaml模板文件
 
 9.31 kubernetes.pod-template-file.jobmanager
-
+定义jobmanager pod部署的yaml模板文件
 
 9.32 kubernetes.pod-template-file.taskmanager
-
+定义taskmanager pod部署的yaml模板文件
 
 9.33 kubernetes.rest-service.annotations
 
@@ -347,10 +347,10 @@ k8s客户端配置文件，默认位于 ~/.kube/config
 定义部署taskmanager容器的labels
 
 9.43 kubernetes.taskmanager.memory.limit-factor
-
+定义taskmanager使用的最大内存数(memory.limit)
 
 9.44 kubernetes.taskmanager.node-selector
-
+配置taskmanager容器的节点选择器
 
 9.45 kubernetes.taskmanager.service-account
 
